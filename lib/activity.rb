@@ -1,7 +1,7 @@
-require 'pry'
+
 class Activity
   attr_reader :name, :participants, :cost
-  def initialize(name, participants = {}, cost)
+  def initialize(name, participants = {}, cost = 0)
     @name = name
     @participants = participants
     @cost = cost
@@ -17,9 +17,7 @@ class Activity
   end
 
   def money_owed(person)
-
     position = @participants[:name].index(person)
     split_cost - (@participants[:amount_paid][position])
-
   end
 end
