@@ -11,12 +11,11 @@ class ActivityTest < Minitest::Test
   end
 
   def test_activity_has_a_name
-    skip
     activity = Activity.new("hiking")
 
     assert_equal "hiking", activity.name
   end
-  
+
   def test_activity_has_participants
   end
 
