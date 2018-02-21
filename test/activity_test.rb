@@ -2,6 +2,7 @@ require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/activity'
+require 'pry'
 
 class ActivityTest < Minitest::Test
   def test_activity_exists
@@ -71,6 +72,7 @@ class ActivityTest < Minitest::Test
   end
 
   def test_activity_participants_know_what_they_owe
+    # skip
     participants = {
         name:          ["Jane", "Megan"],
         amount_paid:    [16, 3]
