@@ -11,7 +11,6 @@ class ActivityTest < Minitest::Test
         amount_paid:    16
       }
     activity = Activity.new("hiking", participants, 20)
-
     assert_instance_of Activity, activity
   end
 

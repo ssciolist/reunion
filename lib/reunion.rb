@@ -1,7 +1,12 @@
 class Reunion
-  attr_reader :location, :activity
-  def initialize(location, activity)
+  attr_reader :location, :activities
+  def initialize(location)
     @location = location
-    @activity = Activity.new(activity)
+    @activities = []
+  end
+
+  def add_activities(activity_name, participants, cost)
+    activity = Activity.new(activity_name, participants, cost)
+    @activities << activity
   end
 end
