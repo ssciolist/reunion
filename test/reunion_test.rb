@@ -25,12 +25,23 @@ class ReunionTest < Minitest::Test
     assert_equal 5, reunion.activities[0].cost
   end
 
-  # def test_add_activities_to_reunion
-  #   reunion = Reunion.new("lake")
-  #   reunion.add_activities("")
-  #
-  #   assert_instance_of Activity, reunion.activity
-  #   assert_equal "swimming", reunion.activity.name
-  #   assert_equal 0, reunion.activity.cost
-  # end
+  def test_reunion_has_activity
+    reunion = Reunion.new("lake")
+    reunion.add_activities("swimming", "jane", 5)
+    reunion.add_activities("hot springs", "jane", 25)
+
+    assert_equal 30, reunion.total_cost
+  end
+
+  def test_reunion_breakdown
+    participants = {
+        name:          ["Jane", "Megan"],
+        amount_paid:    [16, 3]
+      }
+    reunion = Reunion.new("lake")
+    reunion.add_activities("swimming", participants, 31)
+    reunion.total_cost
+
+  end
+
 end
