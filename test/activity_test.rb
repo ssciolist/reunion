@@ -57,4 +57,30 @@ class ActivityTest < Minitest::Test
 
     assert_equal 20, activity.cost
   end
+
+  def test_activity_costs_can_be_split
+    participants = {
+        name:          ["Jane", "Megan"],
+        amount_paid:    [16, 3]
+      }
+    activity = Activity.new("hiking", participants, 20)
+
+    activity.split_cost
+
+    assert_equal 10, activity.split_cost
+  end
+
+  def test_activity_participants_know_what_they_owe
+    participants = {
+        name:          ["Jane", "Megan"],
+        amount_paid:    [16, 3]
+      }
+    activity = Activity.new("hiking", participants, 20)
+
+    activity.money_owed("Jane")
+    activity.money_owed("Megan")
+
+    assert_equal -6, activity.money_owed("Jane")
+    assert_equal 7, activity.money_owed("Megan")
+  end
 end
